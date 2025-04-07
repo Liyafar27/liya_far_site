@@ -143,7 +143,17 @@ class HeroSection extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 40),
+        Container(
+          constraints: const BoxConstraints(maxWidth: 800),
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+          child: Text( 'Web3 development, working with blockchains like Solana, BNB Chain, NEAR, and Bitcoin. I’ve built mobile and web apps that connect to live wallets like Phantom, MetaMask, Uniswap Wallet, and Meteor, supporting everything from token swaps and real-time price tracking to trading bots and NFT interactions.',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            height: 1.5,
+            color: Colors.white70,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),  const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -75,7 +75,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('REST APIs', FontAwesomeIcons.networkWired),
                     _Skill('WebSockets', FontAwesomeIcons.plug),
                   ],
-                  delay: 1,
+                  delay: 0.5,
                 ),
                 _buildSkillCategory(
                   context,
@@ -86,7 +86,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('Riverpod', FontAwesomeIcons.stream),
                     _Skill('ValueNotifier', FontAwesomeIcons.bell),
                   ],
-                  delay: 2,
+                  delay: 1,
                 ),
                 _buildSkillCategory(
                   context,
@@ -97,7 +97,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('Jira & Confluence', FontAwesomeIcons.jira),
                     _Skill('Figma & Adobe', FontAwesomeIcons.figma),
                   ],
-                  delay: 3,
+                  delay: 2,
                 ),
                 _buildSkillCategory(
                   context,
@@ -108,7 +108,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('Integration Testing', FontAwesomeIcons.check),
                     _Skill('Crashlytics & Sentry', FontAwesomeIcons.bug),
                   ],
-                  delay: 4,
+                  delay: 2.5,
                 ),
                 _buildSkillCategory(
                   context,
@@ -119,7 +119,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('Deep Linking', FontAwesomeIcons.link),
                     _Skill('Navigation 2.0', FontAwesomeIcons.route),
                   ],
-                  delay: 5,
+                  delay: 3,
                 ),
 
                 _buildSkillCategory(
@@ -134,7 +134,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('RPC & WebSocket Interaction', FontAwesomeIcons.networkWired),
                     _Skill('Flutter UI for Web3 Integration', FontAwesomeIcons.mobileAlt),
                   ],
-                  delay: 6,
+                  delay: 4,
                   width: 490,
 
                 ),
@@ -151,7 +151,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     _Skill('Arbitrage Trading Bot', FontAwesomeIcons.robot),
                     _Skill('Monitor price PancakeSwap/SushiSwap', FontAwesomeIcons.eye),
     ],
-                  delay: 7,
+                  delay: 4.5,
                     width: 490,
 
                 ),
@@ -164,7 +164,7 @@ class _SkillsSectionState extends State<SkillsSection> {
     );
   }
 
-  Widget _buildSkillCategory(BuildContext context, String title, List<_Skill> skills, {required int delay, double? width}) {
+  Widget _buildSkillCategory(BuildContext context, String title, List<_Skill> skills, {required double delay, double? width}) {
     return Container(
       width: width??300,
       padding: const EdgeInsets.all(20),
