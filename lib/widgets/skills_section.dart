@@ -147,6 +147,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                     delay: 4,
                     width: isMobile ? screenWidth * 0.9 : 400,
                     isMobile: isMobile,
+                    fontSize: 13
                   ),
                   _buildSkillCategory(
                     context,
@@ -163,6 +164,8 @@ class _SkillsSectionState extends State<SkillsSection> {
                     delay: 4.5,
                     width: isMobile ? screenWidth * 0.9 : 400,
                     isMobile: isMobile,
+                      fontSize: 13
+
                   ),
                 ],
               ),
@@ -176,6 +179,7 @@ class _SkillsSectionState extends State<SkillsSection> {
     required double delay,
     double? width,
     required bool isMobile,
+    double? fontSize,
   }) {
     return Container(
       width: width ?? 300,
@@ -203,7 +207,7 @@ class _SkillsSectionState extends State<SkillsSection> {
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
-              fontSize: isMobile ? 15 : null,
+              fontSize:  fontSize?? 15 ,
               shadows: [
                 Shadow(
                   color: Theme.of(context).colorScheme.primary,
@@ -213,7 +217,7 @@ class _SkillsSectionState extends State<SkillsSection> {
             ),
           ),
           const SizedBox(height: 20),
-          ...skills.map((skill) => _buildSkillItem(context, skill, isMobile)),
+          ...skills.map((skill) => _buildSkillItem(context, skill, isMobile, fontSize)),
         ],
       ),
     ).animate().fadeIn(
@@ -229,7 +233,7 @@ class _SkillsSectionState extends State<SkillsSection> {
     );
   }
 
-  Widget _buildSkillItem(BuildContext context, _Skill skill, bool isMobile) {
+  Widget _buildSkillItem(BuildContext context, _Skill skill, bool isMobile, double? fontSize) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -245,7 +249,7 @@ class _SkillsSectionState extends State<SkillsSection> {
               skill.name,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 color: Colors.white70,
-                fontSize: isMobile ? 13 : 16,
+                fontSize: fontSize ?? 14,
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
