@@ -15,6 +15,9 @@ class _SkillsSectionState extends State<SkillsSection> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
+
     return VisibilityDetector(
       key: const Key('skills-section'),
       onVisibilityChanged: (info) {
@@ -31,143 +34,152 @@ class _SkillsSectionState extends State<SkillsSection> {
             Text(
               'AREAS OF EXPERTISE',
               style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.primary,
-                    shadows: [
-                      Shadow(
-                        color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                        blurRadius: 15,
-                      ),
-                      Shadow(
-                        color: Theme.of(context).colorScheme.primary,
-                        blurRadius: 25,
-                      ),
-                      Shadow(
-                        color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                        blurRadius: 35,
-                      ),
-                    ],
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: isMobile ? 20 : null,
+                shadows: [
+                  Shadow(
+                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    blurRadius: 15,
                   ),
+                  Shadow(
+                    color: Theme.of(context).colorScheme.primary,
+                    blurRadius: 25,
+                  ),
+                  Shadow(
+                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    blurRadius: 35,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 60),
-            if (_isVisible) Wrap(
-              spacing: 30,
-              runSpacing: 30,
-              alignment: WrapAlignment.center,
-              children: [
-                _buildSkillCategory(
-                  context,
-                  'Mobile Development',
-                  [
-                    _Skill('Flutter & Dart', FontAwesomeIcons.mobile),
-                    _Skill('Android (Kotlin, Java)', FontAwesomeIcons.android),
-                    _Skill('UI/UX Design', FontAwesomeIcons.palette),
-                    _Skill('Responsive Layouts', FontAwesomeIcons.desktop),
-                  ],
-                  delay: 0,
-                ),
-                _buildSkillCategory(
-                  context,
-                  'Backend Integration',
-                  [
-                    _Skill('GraphQL', FontAwesomeIcons.database),
-                    _Skill('Firebase', FontAwesomeIcons.fire),
-                    _Skill('REST APIs', FontAwesomeIcons.networkWired),
-                    _Skill('WebSockets', FontAwesomeIcons.plug),
-                  ],
-                  delay: 0.5,
-                ),
-                _buildSkillCategory(
-                  context,
-                  'State Management',
-                  [
-                    _Skill('Bloc', FontAwesomeIcons.cube),
-                    _Skill('Provider', FontAwesomeIcons.code),
-                    _Skill('Riverpod', FontAwesomeIcons.stream),
-                    _Skill('ValueNotifier', FontAwesomeIcons.bell),
-                  ],
-                  delay: 1,
-                ),
-                _buildSkillCategory(
-                  context,
-                  'Development Tools',
-                  [
-                    _Skill('Git & GitLab', FontAwesomeIcons.git),
-                    _Skill('CI/CD', FontAwesomeIcons.rocket),
-                    _Skill('Jira & Confluence', FontAwesomeIcons.jira),
-                    _Skill('Figma & Adobe', FontAwesomeIcons.figma),
-                  ],
-                  delay: 2,
-                ),
-                _buildSkillCategory(
-                  context,
-                  'Testing & Quality',
-                  [
-                    _Skill('Unit Testing', FontAwesomeIcons.vial),
-                    _Skill('Widget Testing', FontAwesomeIcons.mobile),
-                    _Skill('Integration Testing', FontAwesomeIcons.check),
-                    _Skill('Crashlytics & Sentry', FontAwesomeIcons.bug),
-                  ],
-                  delay: 2.5,
-                ),
-                _buildSkillCategory(
-                  context,
-                  'App Features',
-                  [
-                    _Skill('FCM Notifications', FontAwesomeIcons.bell),
-                    _Skill('Local Storage', FontAwesomeIcons.database),
-                    _Skill('Deep Linking', FontAwesomeIcons.link),
-                    _Skill('Navigation 2.0', FontAwesomeIcons.route),
-                  ],
-                  delay: 3,
-                ),
-
-                _buildSkillCategory(
-                  context,
-                  'Web3 Development',
-                  [
-                    _Skill('Wallet Creation Solana', FontAwesomeIcons.wallet),
-                    _Skill('Integrating Wallets: Phantom/Meteor etc.', FontAwesomeIcons.link),
-                    _Skill('Blockchain: Solana/NEAR/BNB/BTC', FontAwesomeIcons.chain),
-                    _Skill('Swaps/Token Transfers Jupiter/Raydium', FontAwesomeIcons.exchangeAlt),
-                    _Skill('Transaction Sign/Gas/Fee/Confirmation', FontAwesomeIcons.signature),
-                    _Skill('RPC & WebSocket Interaction', FontAwesomeIcons.networkWired),
-                    _Skill('Flutter UI for Web3 Integration', FontAwesomeIcons.mobileAlt),
-                  ],
-                  delay: 4,
-                  width: 490,
-
-                ),
-                SizedBox(width: 50,),
-                _buildSkillCategory(
-                  context,
-                  'Crypto Trading Bots',
-                  [
-                    _Skill('Crypto Trading Bots on Node.js', FontAwesomeIcons.robot),
-                    _Skill('SOL/USDC, NEAR/USDC, BNB/MEME', FontAwesomeIcons.coins),
-                    _Skill('Automatic Token Swaps', FontAwesomeIcons.exchangeAlt),
-                    _Skill('Transaction Monitoring and Confirmation', FontAwesomeIcons.eye),
-                    _Skill('Trade Execution and Profit Optimization', FontAwesomeIcons.chartLine),
-                    _Skill('Arbitrage Trading Bot', FontAwesomeIcons.robot),
-                    _Skill('Monitor price PancakeSwap/SushiSwap', FontAwesomeIcons.eye),
-    ],
-                  delay: 4.5,
-                    width: 490,
-
-                ),
-
-              ],
-            ),
+            if (_isVisible)
+              Wrap(
+                spacing: 30,
+                runSpacing: 30,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildSkillCategory(
+                    context,
+                    'Mobile Development',
+                    [
+                      _Skill('Flutter & Dart', FontAwesomeIcons.mobile),
+                      _Skill('Android (Kotlin, Java)', FontAwesomeIcons.android),
+                      _Skill('UI/UX Design', FontAwesomeIcons.palette),
+                      _Skill('Responsive Layouts', FontAwesomeIcons.desktop),
+                    ],
+                    delay: 0,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'Backend Integration',
+                    [
+                      _Skill('GraphQL', FontAwesomeIcons.database),
+                      _Skill('Firebase', FontAwesomeIcons.fire),
+                      _Skill('REST APIs', FontAwesomeIcons.networkWired),
+                      _Skill('WebSockets', FontAwesomeIcons.plug),
+                    ],
+                    delay: 0.5,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'State Management',
+                    [
+                      _Skill('Bloc', FontAwesomeIcons.cube),
+                      _Skill('Provider', FontAwesomeIcons.code),
+                      _Skill('Riverpod', FontAwesomeIcons.stream),
+                      _Skill('ValueNotifier', FontAwesomeIcons.bell),
+                    ],
+                    delay: 1,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'Development Tools',
+                    [
+                      _Skill('Git & GitLab', FontAwesomeIcons.git),
+                      _Skill('CI/CD', FontAwesomeIcons.rocket),
+                      _Skill('Jira & Confluence', FontAwesomeIcons.jira),
+                      _Skill('Figma & Adobe', FontAwesomeIcons.figma),
+                    ],
+                    delay: 2,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'Testing & Quality',
+                    [
+                      _Skill('Unit Testing', FontAwesomeIcons.vial),
+                      _Skill('Widget Testing', FontAwesomeIcons.mobile),
+                      _Skill('Integration Testing', FontAwesomeIcons.check),
+                      _Skill('Crashlytics & Sentry', FontAwesomeIcons.bug),
+                    ],
+                    delay: 2.5,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'App Features',
+                    [
+                      _Skill('FCM Notifications', FontAwesomeIcons.bell),
+                      _Skill('Local Storage', FontAwesomeIcons.database),
+                      _Skill('Deep Linking', FontAwesomeIcons.link),
+                      _Skill('Navigation 2.0', FontAwesomeIcons.route),
+                    ],
+                    delay: 3,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'Web3 Development',
+                    [
+                      _Skill('Wallet Creation Solana', FontAwesomeIcons.wallet),
+                      _Skill('Integrating Wallets: Phantom/Meteor etc.', FontAwesomeIcons.link),
+                      _Skill('Blockchain: Solana/NEAR/BNB/BTC', FontAwesomeIcons.chain),
+                      _Skill('Swaps/Token Transfers Jupiter/Raydium', FontAwesomeIcons.exchangeAlt),
+                      _Skill('Transaction Sign/Gas/Fee/Confirmation', FontAwesomeIcons.signature),
+                      _Skill('RPC & WebSocket Interaction', FontAwesomeIcons.networkWired),
+                      _Skill('Flutter UI for Web3 Integration', FontAwesomeIcons.mobileAlt),
+                    ],
+                    delay: 4,
+                    width: isMobile ? screenWidth * 0.9 : 400,
+                    isMobile: isMobile,
+                  ),
+                  _buildSkillCategory(
+                    context,
+                    'Crypto Trading Bots',
+                    [
+                      _Skill('Crypto Trading Bots on Node.js', FontAwesomeIcons.robot),
+                      _Skill('SOL/USDC, NEAR/USDC, BNB/MEME', FontAwesomeIcons.coins),
+                      _Skill('Automatic Token Swaps', FontAwesomeIcons.exchangeAlt),
+                      _Skill('Transaction Monitoring and Confirmation', FontAwesomeIcons.eye),
+                      _Skill('Trade Execution and Profit Optimization', FontAwesomeIcons.chartLine),
+                      _Skill('Arbitrage Trading Bot', FontAwesomeIcons.robot),
+                      _Skill('Monitor price PancakeSwap/SushiSwap', FontAwesomeIcons.eye),
+                    ],
+                    delay: 4.5,
+                    width: isMobile ? screenWidth * 0.9 : 400,
+                    isMobile: isMobile,
+                  ),
+                ],
+              ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSkillCategory(BuildContext context, String title, List<_Skill> skills, {required double delay, double? width}) {
+  Widget _buildSkillCategory(BuildContext context, String title, List<_Skill> skills, {
+    required double delay,
+    double? width,
+    required bool isMobile,
+  }) {
     return Container(
-      width: width??300,
-      padding: const EdgeInsets.all(20),
+      width: width ?? 300,
+      padding: EdgeInsets.all(isMobile ? 12 : 20),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
@@ -189,18 +201,19 @@ class _SkillsSectionState extends State<SkillsSection> {
           Text(
             title,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.primary,
+              fontSize: isMobile ? 15 : null,
+              shadows: [
+                Shadow(
                   color: Theme.of(context).colorScheme.primary,
-                  shadows: [
-                    Shadow(
-                      color: Theme.of(context).colorScheme.primary,
-                      blurRadius: 5,
-                    ),
-                  ],
+                  blurRadius: 5,
                 ),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
-          ...skills.map((skill) => _buildSkillItem(context, skill)),
+          ...skills.map((skill) => _buildSkillItem(context, skill, isMobile)),
         ],
       ),
     ).animate().fadeIn(
@@ -216,7 +229,7 @@ class _SkillsSectionState extends State<SkillsSection> {
     );
   }
 
-  Widget _buildSkillItem(BuildContext context, _Skill skill) {
+  Widget _buildSkillItem(BuildContext context, _Skill skill, bool isMobile) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -227,11 +240,16 @@ class _SkillsSectionState extends State<SkillsSection> {
             color: Theme.of(context).colorScheme.secondary,
           ),
           const SizedBox(width: 12),
-          Text(
-            skill.name,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.white70,
-                ),
+          Flexible(
+            child: Text(
+              skill.name,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: Colors.white70,
+                fontSize: isMobile ? 13 : 16,
+              ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
           ),
         ],
       ),
@@ -244,4 +262,4 @@ class _Skill {
   final IconData icon;
 
   _Skill(this.name, this.icon);
-} 
+}
