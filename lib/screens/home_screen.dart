@@ -27,11 +27,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: Colors.black,
-              child: const ContactSection(),
-            ),
+            const ContactSection(),
           ],
         ),
       ),

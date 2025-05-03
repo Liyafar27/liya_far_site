@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:js' as js;
 
 import 'js_open.dart';
 
-class ContactSection extends StatelessWidget {
+class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
+
+  @override
+  State<ContactSection> createState() => _ContactSectionState();
+}
+
+class _ContactSectionState extends State<ContactSection> {
+  Offset _offset = Offset.zero;
 
   void _launchURL(String url) async {
     if (await canLaunchUrl(Uri.parse(url))) {
@@ -21,9 +27,12 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final center = screenSize.center(Offset.zero);
     return Container(
+      height: 400,
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 60),
+      padding: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
@@ -32,71 +41,159 @@ class ContactSection extends StatelessWidget {
           ),
         ),
       ),
-      child: Column(
-        children: [
-          Text(
-            'GET IN TOUCH',
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
-              shadows: [
-                Shadow(
-                  color: Theme.of(context).colorScheme.primary,
-                  blurRadius: 15,
-                ),
-                Shadow(
-                  color: Theme.of(context).colorScheme.primary,
-                  blurRadius: 30,
-                ),
-                Shadow(
-                  color: Theme.of(context).colorScheme.primary,
-                  blurRadius: 45,
-                ),
-              ],
+      child:  MouseRegion(
+        onHover: (event) {
+          setState(() {
+            _offset = event.position - center;
+          });
+        },child: Stack(
+          children: [
+            SizedBox(
+              height: 350,
+              child: Stack(
+                children: [
+                  // Задний слой
+                  Transform.scale(
+                    scale: 1.0, // увеличиваем немного
+                    child: Transform.translate(
+                      offset: Offset(_offset.dx * 0.02, _offset.dy * 0.02),
+                      child: SizedBox.expand(
+                        child: Image.asset(
+                          'assets/images/bg1.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Transform.scale(
+                    scale: 1.0, // увеличиваем немного
+                    child: Transform.translate(
+                      offset: Offset(_offset.dx * 0.03, _offset.dy * 0.03),
+                      child: SizedBox.expand(
+                        child: Image.asset(
+                          'assets/images/bg4.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.scale(
+                    scale: 1, // увеличиваем немного
+                    child: Transform.translate(
+                      offset: Offset(_offset.dx * 0.04, _offset.dy * 0.04),
+                      child: SizedBox.expand(
+                        child: Image.asset(
+                          'assets/images/bg3.png',                        fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.scale(
+                    scale: 1, // увеличиваем немного
+                    child: Transform.translate(
+                      offset: Offset(_offset.dx * 0.05, _offset.dy * 0.05),
+                      child: SizedBox.expand(
+                        child: Image.asset(
+                          'assets/images/bg2.png',                        fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Текст по центру
+                  // Center(
+                  //   child: Transform(
+                  //     transform: Matrix4.identity()
+                  //       ..translate(_offset.dx * 0.01, _offset.dy * 0.01)
+                  //       ..rotateZ(_offset.dx * 0.0001),
+                  //     child: Text(
+                  //       'Welcome to my site!',
+                  //       style: TextStyle(
+                  //         fontSize: 36,
+                  //         color: Colors.white,
+                  //         fontWeight: FontWeight.bold,
+                  //         shadows: [
+                  //           Shadow(color: Colors.black54, blurRadius: 10, offset: Offset(3, 3)),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 40),
-          Container(
-            constraints: const BoxConstraints(maxWidth: 1200),
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
+        Container(
+          // height: MediaQuery.of(context).size.height,
+          // decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.7),),
+            Column(
               children: [
                 Text(
-                  'Let\'s Create Something Amazing Together',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
+                  'GET IN TOUCH',
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary,
                     shadows: [
                       Shadow(
-                        color: Theme.of(context).colorScheme.secondary,
-                        blurRadius: 5,
+                        color: Theme.of(context).colorScheme.primary,
+                        blurRadius: 15,
+                      ),
+                      Shadow(
+                        color: Theme.of(context).colorScheme.primary,
+                        blurRadius: 30,
+                      ),
+                      Shadow(
+                        color: Theme.of(context).colorScheme.primary,
+                        blurRadius: 45,
                       ),
                     ],
                   ),
-                  textAlign: TextAlign.center,
-                ).animate().fadeIn(
-                      delay: 200.ms,
-                      duration: 200.ms,
-                      curve: Curves.easeIn,
-                    ),
+                ),
                 const SizedBox(height: 40),
-                _buildContactInfo(context),
-                const SizedBox(height: 40),
-                _buildSocialLinks(context),
-                const SizedBox(height: 20),
-                Text(
-                  '© ${DateTime.now().year} Aliya Far. All rights reserved.',
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.white54,
-                      ),
-                ).animate().fadeIn(
-                      delay: 800.ms,
-                      duration: 200.ms,
-                      curve: Curves.easeIn,
-                    ),
+                Container(
+                  constraints: const BoxConstraints(maxWidth: 1200),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Let\'s Create Something Amazing Together',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.secondary,
+                          shadows: [
+                            Shadow(
+                              color: Theme.of(context).colorScheme.secondary,
+                              blurRadius: 5,
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ).animate().fadeIn(
+                            delay: 200.ms,
+                            duration: 200.ms,
+                            curve: Curves.easeIn,
+                          ),
+                      const SizedBox(height: 40),
+                      _buildContactInfo(context),
+                      const SizedBox(height: 40),
+                      _buildSocialLinks(context),
+                      const SizedBox(height: 20),
+                      Text(
+                        '© ${DateTime.now().year} Aliya Far. All rights reserved.',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Colors.white54,
+                            ),
+                      ).animate().fadeIn(
+                            delay: 800.ms,
+                            duration: 200.ms,
+                            curve: Curves.easeIn,
+                          ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
