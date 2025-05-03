@@ -1,18 +1,16 @@
 # Portfolio Website
 
-Современный одностраничный сайт-портфолио, разработанный с использованием Flutter Web.
+A modern one-page portfolio website developed using Flutter Web.
+[**Site**](https://site-git-master-liyafars-projects.vercel.app)
+## Features
 
-## Особенности
+🎨 Modern and responsive design
+✨ Smooth animations and transitions
+📱 Adaptive interface for all devices
+🚀 Optimized performance
+🔗 Social media integration
 
-- 🎨 Современный и отзывчивый дизайн
-- ✨ Плавные анимации и переходы
-- 📱 Адаптивный интерфейс для всех устройств
-- 🚀 Оптимизированная производительность
-- 📝 Форма обратной связи
-- 🔗 Интеграция с социальными сетями
-
-## Технологии
-
+## Technologies
 - Flutter Web
 - Google Fonts
 - Animated Text Kit
@@ -22,35 +20,34 @@
 - Responsive Framework
 - Flutter Staggered Grid View
 
-## Установка
+## Installation
 
-1. Убедитесь, что у вас установлен Flutter SDK:
+1. Ensure you have the Flutter SDK installed:
 ```bash
 flutter --version
 ```
 
-2. Клонируйте репозиторий:
+2. Clone the repository:
 ```bash
 git clone https://github.com/your-username/portfolio-website.git
 ```
 
-3. Перейдите в директорию проекта:
+3. Navigate to the project directory:
 ```bash
 cd portfolio-website
 ```
 
-4. Установите зависимости:
+4. Install dependencies:
 ```bash
 flutter pub get
 ```
 
-5. Запустите проект:
+5. Run the project:
 ```bash
 flutter run -d chrome
 ```
 
-## Структура проекта
-
+## Project Structure
 ```
 lib/
   ├── widgets/
@@ -64,13 +61,4 @@ lib/
   └── main.dart
 ```
 
-## Кастомизация
 
-1. Обновите личную информацию в `lib/widgets/hero_section.dart`
-2. Измените список навыков в `lib/widgets/skills_section.dart`
-3. Добавьте свои проекты в `lib/widgets/portfolio_section.dart`
-4. Настройте социальные ссылки в `lib/widgets/contact_section.dart`
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
