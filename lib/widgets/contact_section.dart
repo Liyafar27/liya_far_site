@@ -210,7 +210,7 @@ class _ContactSectionState extends State<ContactSection> {
           'https://t.me/LiyaFar',
           delay: 800,
         ),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         Tooltip(
