@@ -11,7 +11,6 @@ class AboutSection extends StatelessWidget {
     return VisibilityDetector(
       key: const Key('about-section'),
       onVisibilityChanged: (info) {
-        // Animation trigger on visibility
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 60),

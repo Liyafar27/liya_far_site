@@ -15,8 +15,8 @@ class PortfolioSection extends StatelessWidget {
             'Портфолио',
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ).animate().fadeIn(duration: 600.ms),
           const SizedBox(height: 60),
           MasonryGridView.count(
@@ -65,21 +65,24 @@ class _Project {
 final List<_Project> _projects = [
   _Project(
     title: 'Fitness App',
-    description: 'Мобильное приложение для фитнеса с персонализированными тренировками и отслеживанием прогресса.',
+    description:
+        'Мобильное приложение для фитнеса с персонализированными тренировками и отслеживанием прогресса.',
     imageUrl: 'assets/images/fitness_app.png',
     technologies: ['Flutter', 'Firebase', 'Provider'],
     link: 'https://github.com/your-username/fitness-app',
   ),
   _Project(
     title: 'E-commerce Platform',
-    description: 'Платформа электронной коммерции с интеграцией платежей и системой управления заказами.',
+    description:
+        'Платформа электронной коммерции с интеграцией платежей и системой управления заказами.',
     imageUrl: 'assets/images/ecommerce.png',
     technologies: ['Flutter', 'REST API', 'Bloc'],
     link: 'https://github.com/your-username/ecommerce-app',
   ),
   _Project(
     title: 'Task Manager',
-    description: 'Приложение для управления задачами с возможностью совместной работы и уведомлениями.',
+    description:
+        'Приложение для управления задачами с возможностью совместной работы и уведомлениями.',
     imageUrl: 'assets/images/task_manager.png',
     technologies: ['Flutter', 'SQLite', 'Provider'],
     link: 'https://github.com/your-username/task-manager',
@@ -138,8 +141,12 @@ class _ProjectCard extends StatelessWidget {
                   children: project.technologies.map((tech) {
                     return Chip(
                       label: Text(tech),
-                      backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                      labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
+                      backgroundColor: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.1),
+                      labelStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.primary),
                     );
                   }).toList(),
                 ),
@@ -159,4 +166,4 @@ class _ProjectCard extends StatelessWidget {
       ),
     );
   }
-} 
+}

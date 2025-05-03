@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+
 import 'screens/home_screen.dart';
 
 void main() {
@@ -37,8 +38,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(
           background: Colors.black,
           surface: Colors.grey[900]?.withOpacity(0.3) ?? Colors.black,
-          primary: const Color(0xFFCCFF00), // neon yellow-green
-          secondary: const Color(0xFFFF00FF), // neon pink
+          primary: const Color(0xFFCCFF00),
+          // neon yellow-green
+          secondary: const Color(0xFFFF00FF),
+          // neon pink
           tertiary: const Color(0xFFFF0066), // neon rose
         ),
         scaffoldBackgroundColor: Colors.black,
@@ -60,7 +63,8 @@ class MyApp extends StatelessWidget {
                   const Breakpoint(start: 0, end: 450, name: MOBILE),
                   const Breakpoint(start: 451, end: 800, name: TABLET),
                   const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-                  const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+                  const Breakpoint(
+                      start: 1921, end: double.infinity, name: '4K'),
                 ],
               );
             },

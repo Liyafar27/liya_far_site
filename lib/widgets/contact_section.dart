@@ -53,9 +53,8 @@ class _ContactSectionState extends State<ContactSection> {
               height: 350,
               child: Stack(
                 children: [
-                  // Задний слой
                   Transform.scale(
-                    scale: 1.0, // увеличиваем немного
+                    scale: 1.0,
                     child: Transform.translate(
                       offset: Offset(_offset.dx * 0.02, _offset.dy * 0.02),
                       child: SizedBox.expand(
@@ -68,7 +67,7 @@ class _ContactSectionState extends State<ContactSection> {
                   ),
 
                   Transform.scale(
-                    scale: 1.0, // увеличиваем немного
+                    scale: 1.0,
                     child: Transform.translate(
                       offset: Offset(_offset.dx * 0.03, _offset.dy * 0.03),
                       child: SizedBox.expand(
@@ -80,7 +79,7 @@ class _ContactSectionState extends State<ContactSection> {
                     ),
                   ),
                   Transform.scale(
-                    scale: 1, // увеличиваем немного
+                    scale: 1,
                     child: Transform.translate(
                       offset: Offset(_offset.dx * 0.04, _offset.dy * 0.04),
                       child: SizedBox.expand(
@@ -92,7 +91,7 @@ class _ContactSectionState extends State<ContactSection> {
                     ),
                   ),
                   Transform.scale(
-                    scale: 1, // увеличиваем немного
+                    scale: 1,
                     child: Transform.translate(
                       offset: Offset(_offset.dx * 0.05, _offset.dy * 0.05),
                       child: SizedBox.expand(
@@ -158,8 +157,6 @@ class _ContactSectionState extends State<ContactSection> {
                               duration: 200.ms,
                               curve: Curves.easeIn,
                             ),
-                        // const SizedBox(height: 40),
-                        // _buildContactInfo(context),
                         const SizedBox(height: 40),
                         _buildSocialLinks(context),
                         const SizedBox(height: 20),
@@ -238,8 +235,8 @@ class _ContactSectionState extends State<ContactSection> {
   Widget _buildSocialButton(
     BuildContext context,
     String label,
-    IconData icon,
-    String url, {
+      IconData icon,
+      String url, {
     required int delay,
   }) {
     return Tooltip(

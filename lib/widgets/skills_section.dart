@@ -39,7 +39,8 @@ class _SkillsSectionState extends State<SkillsSection> {
                 fontSize: isMobile ? 20 : null,
                 shadows: [
                   Shadow(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.5),
                     blurRadius: 15,
                   ),
                   Shadow(
@@ -47,7 +48,8 @@ class _SkillsSectionState extends State<SkillsSection> {
                     blurRadius: 25,
                   ),
                   Shadow(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.5),
                     blurRadius: 35,
                   ),
                 ],
@@ -65,7 +67,8 @@ class _SkillsSectionState extends State<SkillsSection> {
                     'Mobile Development',
                     [
                       _Skill('Flutter & Dart', FontAwesomeIcons.mobile),
-                      _Skill('Android (Kotlin, Java)', FontAwesomeIcons.android),
+                      _Skill(
+                          'Android (Kotlin, Java)', FontAwesomeIcons.android),
                       _Skill('UI/UX Design', FontAwesomeIcons.palette),
                       _Skill('Responsive Layouts', FontAwesomeIcons.desktop),
                     ],
@@ -133,40 +136,50 @@ class _SkillsSectionState extends State<SkillsSection> {
                     isMobile: isMobile,
                   ),
                   _buildSkillCategory(
-                    context,
-                    'Web3 Development',
-                    [
-                      _Skill('Wallet Creation Solana', FontAwesomeIcons.wallet),
-                      _Skill('Integrating Wallets: Phantom/Meteor etc.', FontAwesomeIcons.link),
-                      _Skill('Blockchain: Solana/NEAR/BNB/BTC', FontAwesomeIcons.chain),
-                      _Skill('Swaps/Token Transfers Jupiter/Raydium', FontAwesomeIcons.exchangeAlt),
-                      _Skill('Transaction Sign/Gas/Fee/Confirmation', FontAwesomeIcons.signature),
-                      _Skill('RPC & WebSocket Interaction', FontAwesomeIcons.networkWired),
-                      _Skill('Flutter UI for Web3 Integration', FontAwesomeIcons.mobileAlt),
-                    ],
-                    delay: 4,
-                    width: isMobile ? screenWidth * 0.9 : 400,
-                    isMobile: isMobile,
-                    fontSize: 13
-                  ),
+                      context,
+                      'Web3 Development',
+                      [
+                        _Skill(
+                            'Wallet Creation Solana', FontAwesomeIcons.wallet),
+                        _Skill('Integrating Wallets: Phantom/Meteor etc.',
+                            FontAwesomeIcons.link),
+                        _Skill('Blockchain: Solana/NEAR/BNB/BTC',
+                            FontAwesomeIcons.chain),
+                        _Skill('Swaps/Token Transfers Jupiter/Raydium',
+                            FontAwesomeIcons.exchangeAlt),
+                        _Skill('Transaction Sign/Gas/Fee/Confirmation',
+                            FontAwesomeIcons.signature),
+                        _Skill('RPC & WebSocket Interaction',
+                            FontAwesomeIcons.networkWired),
+                        _Skill('Flutter UI for Web3 Integration',
+                            FontAwesomeIcons.mobileAlt),
+                      ],
+                      delay: 4,
+                      width: isMobile ? screenWidth * 0.9 : 400,
+                      isMobile: isMobile,
+                      fontSize: 13),
                   _buildSkillCategory(
-                    context,
-                    'Crypto Trading Bots',
-                    [
-                      _Skill('Crypto Trading Bots on Node.js', FontAwesomeIcons.robot),
-                      _Skill('SOL/USDC, NEAR/USDC, BNB/MEME', FontAwesomeIcons.coins),
-                      _Skill('Automatic Token Swaps', FontAwesomeIcons.exchangeAlt),
-                      _Skill('Transaction Monitoring and Confirmation', FontAwesomeIcons.eye),
-                      _Skill('Trade Execution and Profit Optimization', FontAwesomeIcons.chartLine),
-                      _Skill('Arbitrage Trading Bot', FontAwesomeIcons.robot),
-                      _Skill('Monitor price PancakeSwap/SushiSwap', FontAwesomeIcons.eye),
-                    ],
-                    delay: 4.5,
-                    width: isMobile ? screenWidth * 0.9 : 400,
-                    isMobile: isMobile,
-                      fontSize: 13
-
-                  ),
+                      context,
+                      'Crypto Trading Bots',
+                      [
+                        _Skill('Crypto Trading Bots on Node.js',
+                            FontAwesomeIcons.robot),
+                        _Skill('SOL/USDC, NEAR/USDC, BNB/MEME',
+                            FontAwesomeIcons.coins),
+                        _Skill('Automatic Token Swaps',
+                            FontAwesomeIcons.exchangeAlt),
+                        _Skill('Transaction Monitoring and Confirmation',
+                            FontAwesomeIcons.eye),
+                        _Skill('Trade Execution and Profit Optimization',
+                            FontAwesomeIcons.chartLine),
+                        _Skill('Arbitrage Trading Bot', FontAwesomeIcons.robot),
+                        _Skill('Monitor price PancakeSwap/SushiSwap',
+                            FontAwesomeIcons.eye),
+                      ],
+                      delay: 4.5,
+                      width: isMobile ? screenWidth * 0.9 : 400,
+                      isMobile: isMobile,
+                      fontSize: 13),
                 ],
               ),
           ],
@@ -175,7 +188,10 @@ class _SkillsSectionState extends State<SkillsSection> {
     );
   }
 
-  Widget _buildSkillCategory(BuildContext context, String title, List<_Skill> skills, {
+  Widget _buildSkillCategory(
+    BuildContext context,
+    String title,
+    List<_Skill> skills, {
     required double delay,
     double? width,
     required bool isMobile,
@@ -207,7 +223,7 @@ class _SkillsSectionState extends State<SkillsSection> {
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
-              fontSize:  fontSize?? 15 ,
+              fontSize: fontSize ?? 15,
               shadows: [
                 Shadow(
                   color: Theme.of(context).colorScheme.primary,
@@ -217,23 +233,28 @@ class _SkillsSectionState extends State<SkillsSection> {
             ),
           ),
           const SizedBox(height: 20),
-          ...skills.map((skill) => _buildSkillItem(context, skill, isMobile, fontSize)),
+          ...skills.map(
+              (skill) => _buildSkillItem(context, skill, isMobile, fontSize)),
         ],
       ),
-    ).animate().fadeIn(
-      delay: (delay * 1000).ms,
-      duration: 400.ms,
-      curve: Curves.easeOut,
-    ).slideY(
-      begin: 0.3,
-      end: 0,
-      delay: (delay * 1000).ms,
-      duration: 400.ms,
-      curve: Curves.easeOut,
-    );
+    )
+        .animate()
+        .fadeIn(
+          delay: (delay * 1000).ms,
+          duration: 400.ms,
+          curve: Curves.easeOut,
+        )
+        .slideY(
+          begin: 0.3,
+          end: 0,
+          delay: (delay * 1000).ms,
+          duration: 400.ms,
+          curve: Curves.easeOut,
+        );
   }
 
-  Widget _buildSkillItem(BuildContext context, _Skill skill, bool isMobile, double? fontSize) {
+  Widget _buildSkillItem(
+      BuildContext context, _Skill skill, bool isMobile, double? fontSize) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -248,9 +269,9 @@ class _SkillsSectionState extends State<SkillsSection> {
             child: Text(
               skill.name,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white70,
-                fontSize: fontSize ?? 14,
-              ),
+                    color: Colors.white70,
+                    fontSize: fontSize ?? 14,
+                  ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),

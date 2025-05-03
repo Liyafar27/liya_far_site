@@ -22,23 +22,23 @@ class ExperienceSection extends StatelessWidget {
           Text(
             'PROFESSIONAL EXPERIENCE',
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
-                  shadows: [
-                    Shadow(
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                      blurRadius: 15,
-                    ),
-                    Shadow(
-                      color: Theme.of(context).colorScheme.primary,
-                      blurRadius: 25,
-                    ),
-                    Shadow(
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                      blurRadius: 35,
-                    ),
-                  ],
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.primary,
+              shadows: [
+                Shadow(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                  blurRadius: 15,
                 ),
+                Shadow(
+                  color: Theme.of(context).colorScheme.primary,
+                  blurRadius: 25,
+                ),
+                Shadow(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                  blurRadius: 35,
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
           Center(
@@ -90,7 +90,9 @@ class ExperienceSection extends StatelessWidget {
             ),
             _Project(
               'FAGE - Digital Fashion Lounge',
-              ['https://apps.apple.com/kz/app/fage-digital-fashion-lounge/id1546087280'],
+              [
+                'https://apps.apple.com/kz/app/fage-digital-fashion-lounge/id1546087280'
+              ],
             ),
             _Project(
               'Staff Zenden',
@@ -105,8 +107,14 @@ class ExperienceSection extends StatelessWidget {
           period: 'June 2021 - December 2021',
           description: 'Development of water delivery company applications',
           projects: [
-            _Project('Red Key Water Delivery', ['https://play.google.com/store/apps/details?id=ru.yoso.mobile.red_spring&hl=ru','https://apps.apple.com/kz/app/%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BB%D1%8E%D1%87-%D1%81%D1%82%D0%B5%D1%80%D0%BB%D0%B8%D1%82%D0%B0%D0%BC%D0%B0%D0%BA/id1560809662']),
-            _Project('Sister Water Delivery', ['https://play.google.com/store/apps/details?id=ru.yoso.mobile.sestrica','https://apps.apple.com/kz/app/%D0%B2%D0%BE%D0%B4%D0%B0-%D1%81%D0%B5%D1%81%D1%82%D1%80%D0%B8%D1%86%D0%B0-%D1%81%D1%8B%D0%B7%D1%80%D0%B0%D0%BD%D1%8C/id6479362712']),
+            _Project('Red Key Water Delivery', [
+              'https://play.google.com/store/apps/details?id=ru.yoso.mobile.red_spring&hl=ru',
+              'https://apps.apple.com/kz/app/%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BB%D1%8E%D1%87-%D1%81%D1%82%D0%B5%D1%80%D0%BB%D0%B8%D1%82%D0%B0%D0%BC%D0%B0%D0%BA/id1560809662'
+            ]),
+            _Project('Sister Water Delivery', [
+              'https://play.google.com/store/apps/details?id=ru.yoso.mobile.sestrica',
+              'https://apps.apple.com/kz/app/%D0%B2%D0%BE%D0%B4%D0%B0-%D1%81%D0%B5%D1%81%D1%82%D1%80%D0%B8%D1%86%D0%B0-%D1%81%D1%8B%D0%B7%D1%80%D0%B0%D0%BD%D1%8C/id6479362712'
+            ]),
           ],
         ),
         _buildExperienceItem(
@@ -116,8 +124,12 @@ class ExperienceSection extends StatelessWidget {
           period: 'October 2020 - June 2021',
           description: 'Mobile application development',
           projects: [
-            _Project('SeekMed - doctor online', ['https://play.google.com/store/apps/details?id=com.omega_r.healthcare&hl=ru&gl=US']),
-            _Project('Own old app for children (Java)', ['https://play.google.com/store/apps/details?id=ru.soundsforbaby']),
+            _Project('SeekMed - doctor online', [
+              'https://play.google.com/store/apps/details?id=com.omega_r.healthcare&hl=ru&gl=US'
+            ]),
+            _Project('Own old app for children (Java)', [
+              'https://play.google.com/store/apps/details?id=ru.soundsforbaby'
+            ]),
           ],
         ),
       ],
@@ -167,36 +179,47 @@ class ExperienceSection extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        // Основной текст
                         Text(
                           company,
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Theme.of(context).colorScheme.primary,
                               ),
                         ),
-                        // Слой свечения (мягкое пульсирование)
                         Text(
                           company,
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                                shadows: [
-                                  Shadow(
-                                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                                    blurRadius: 8,
-                                  ),
-                                ],
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.5),
+                            shadows: [
+                              Shadow(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .primary
+                                    .withOpacity(0.5),
+                                blurRadius: 8,
                               ),
-                        ).animate(
-                          onPlay: (controller) => controller.repeat(reverse: true),
-                        ).custom(
-                          duration: 3000.ms,
-                          builder: (context, value, child) => Opacity(
-                            opacity: 0.3 + (value * 0.3), // Плавное изменение прозрачности от 0.3 до 0.6
-                            child: child,
+                            ],
                           ),
-                        ),
+                        )
+                            .animate(
+                              onPlay: (controller) =>
+                                  controller.repeat(reverse: true),
+                            )
+                            .custom(
+                              duration: 3000.ms,
+                              builder: (context, value, child) => Opacity(
+                                opacity: 0.3 + (value * 0.3),
+                                child: child,
+                              ),
+                            ),
                       ],
                     ),
                     Text(
@@ -267,7 +290,9 @@ class ExperienceSection extends StatelessWidget {
                 return TextButton.icon(
                   onPressed: () => _launchURL(link),
                   icon: FaIcon(
-                    isAppStore ? FontAwesomeIcons.appStoreIos : FontAwesomeIcons.googlePlay,
+                    isAppStore
+                        ? FontAwesomeIcons.appStoreIos
+                        : FontAwesomeIcons.googlePlay,
                     size: 14,
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -279,7 +304,8 @@ class ExperienceSection extends StatelessWidget {
                     ),
                   ),
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     minimumSize: Size.zero,
                   ),
                 );
@@ -297,4 +323,4 @@ class _Project {
   final List<String> links;
 
   _Project(this.name, this.links);
-} 
+}
